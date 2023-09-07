@@ -29,6 +29,15 @@ const question = "What is an LLM (large language model)?";
 
 try {
   const response = await chat(question);
+  console.log(response + "\n");
+} catch (error) {
+  console.error(error);
+}
+
+// Instruct the model to be very funny when answering questions
+const promptTempltae = `Be very funny when answering questions. Question: ${question}`;
+try {
+  const response = await chat(promptTempltae);
   console.log(response);
 } catch (error) {
   console.error(error);
