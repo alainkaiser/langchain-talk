@@ -37,6 +37,7 @@ const sentenceChain = new LLMChain({ llm, prompt: promptTemplateTwo });
 // Combine the two chains into one
 const combinedChain = new SimpleSequentialChain({
   chains: [titleChain, sentenceChain],
+  // Used to log the output of each chain
   verbose: true,
 });
 
