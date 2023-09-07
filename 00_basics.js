@@ -34,7 +34,7 @@ try {
   console.error(error);
 }
 
-// Instruct the model to be very funny when answering questions
+// Instruct the model to be very funny when answering questions via a prompt template
 const promptTempltae = `Be very funny when answering questions. Question: ${question}`;
 try {
   const response = await chat(promptTempltae);
