@@ -11,7 +11,7 @@ config();
 */
 
 // First, we load in our txt file
-const loader = new TextLoader("restaurant.txt");
+const loader = new TextLoader("data/restaurant.txt");
 
 // Load the document in memory
 const docs = await loader.load();
