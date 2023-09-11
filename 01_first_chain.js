@@ -11,10 +11,13 @@ config();
 */
 
 const llm = new OpenAI({
+  modelName: "text-davinci-003", // Defaults to "text-davinci-003" if no model provided.
   temperature: 0.9,
 });
 
-// Create a prompt template with a placeholder for the product name (which will be filled in by the user)
+/*
+  Most LLM applications do not pass user input directly into an LLM. Usually they will add the user input to a larger piece of text, called a prompt template, that provides additional context on the specific task at hand. Here, we create a prompt template with a placeholder for the product name (which will be filled in by the user)
+*/
 const prompt = PromptTemplate.fromTemplate(
   "What is a good name for a company that makes {product}?"
 );
@@ -32,6 +35,7 @@ const chain = new LLMChain({ llm, prompt });
 })();
 
 const predictResultViaLlmChain = async (product) => {
+  // Run the chain with the product name as input
   const result = await chain.run(product);
   console.log(result);
 };

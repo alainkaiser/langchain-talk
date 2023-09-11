@@ -13,7 +13,7 @@ async function chat(input) {
   const messages = [{ role: "user", content: input }];
 
   const response = await openai.chat.completions.create({
-    model: "gpt-3.5-turbo",
+    model: "gpt-3.5-turbo", // Uses gpt-3.5-turbo model
     messages: messages,
     /* 
     Value from 0 to 1 - Lower temperature results in more consistent outputs
