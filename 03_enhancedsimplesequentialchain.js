@@ -5,6 +5,13 @@ import { PromptTemplate } from "langchain/prompts";
 
 config();
 
+/*
+  This example builds on the knowledge we gained from the previous examples.
+  We will create multiple chains and combine them together via multiple inputs and outputs from each chain.
+
+  Our bot gets a dishname and an experience as inputs. It will then write a review of the dish based on the dish_name and the experience. Then the bot will act as the restaurant and should comment on the review via a follow-up comment, summarise the review and translate the summary to german.
+*/
+
 const llm = new OpenAI({ temperature: 0.3 });
 
 const templateOne = `
@@ -23,7 +30,7 @@ const reviewChain = new LLMChain({
 });
 
 const templateTwo = `
-Given the restaurant review: {review}, write a follow-up comment:  
+Given the restaurant review: {review}, write a follow-up comment. Your job is to act as the restaurant and comment on the review from the customer.  
 `;
 
 const promptTemplateTwo = new PromptTemplate({
