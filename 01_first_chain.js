@@ -22,7 +22,10 @@ const prompt = PromptTemplate.fromTemplate(
   "What is a good name for a company that makes {product}?"
 );
 
-// Create a chain with the LLM and prompt template
+/*
+  Now that we've got a model and a prompt template, we'll want to combine the two. Chains give us a way to link (or chain) together multiple primitives, like models, prompts, and other chains.
+  Here, we are going to create a chain with the LLM and prompt template.
+*/
 const chain = new LLMChain({ llm, prompt });
 
 (async () => {
